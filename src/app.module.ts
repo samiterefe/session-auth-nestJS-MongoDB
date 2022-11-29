@@ -3,12 +3,10 @@ import { AppController } from './app.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
+import { urlString } from './configDb';
 
 @Module({
-  imports: [
-    ConfigModule.forRoot(),
-    MongooseModule.forRoot(process.env.urlString),
-  ],
+  imports: [ConfigModule.forRoot(), MongooseModule.forRoot(urlString)],
   controllers: [AppController],
   providers: [AppService],
 })
